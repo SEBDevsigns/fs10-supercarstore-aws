@@ -1,9 +1,9 @@
 const { db, DataTypes } = require("../db")
 
-const Cars = db.define(
-	"cars",
+const CarsStores = db.define(
+	"CarsStores",
 	{
-		id: {
+		cid: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			autoIncrement: true,
@@ -32,11 +32,13 @@ const Cars = db.define(
 			}
 		},
 		transmission: {
-			type: DataTypes.STRING,
+			type: DataTypes.ENUM("M", "A", "DC", "CVT"),
+
 			allowNull: false
 		},
 		drivetrain: {
-			type: DataTypes.ENUM("FWD", "RWD", "AWD"),
+			type: DataTypes.ENUM("FWD", "RWD", "AWD", "4WD"),
+
 			allowNull: false,
 		},
 		color: {
@@ -56,4 +58,4 @@ const Cars = db.define(
 	}
 )
 
-module.exports = { Cars }
+module.exports = { CarsStores }
